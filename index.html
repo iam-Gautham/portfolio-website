@@ -3,74 +3,517 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gautham P Sajith | Portfolio</title>
+  <title>Gautham P Sajith | Software Developer Portfolio</title>
+  <meta name="description" content="Gautham P Sajith — Software Developer, Java Developer, Web Developer. Portfolio showcasing projects, skills, and experience.">
+
+  <!-- Fonts: Cormorant Garamond (display), Inter (body), JetBrains Mono (labels/data) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Navigation -->
-  <header>
-    <nav>
-      <h1 class="logo">Gautham P Sajith</h1>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <!-- ============ LOADING SCREEN ============ -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <span class="loader-mark">GPS</span>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- ============ BACKGROUND PARTICLES (HERO) ============ -->
+  <canvas id="particles"></canvas>
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav container">
+      <a href="#home" class="logo">G<span class="logo-accent">·</span>PS</a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
+
+      <div class="nav-actions">
+        <!-- Dark / Light mode toggle -->
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle light and dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.6 4.6l1.7 1.7M17.7 17.7l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.6 19.4l1.7-1.7M17.7 6.3l1.7-1.7"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"/></svg>
+        </button>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h2>Hello, I’m <span class="highlight">Gautham</span></h2>
-    <p>Aspiring Software / Web Developer</p>
-    <button id="hireBtn">Hire Me</button>
-  </section>
+  <main>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      Hi, I’m Gautham P Sajith, an aspiring software and web developer.  
-      I’m currently learning Java programming, web technologies, and databases like MySQL.  
-      I enjoy creating small projects and uploading them to GitHub as part of my learning journey.
-    </p>
-  </section>
+    <!-- ============ HERO SECTION ============ -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>My Projects</h2>
-    <div class="project-list">
-      <div class="project-card">
-        <h3>✅ To-Do App</h3>
-        <p>A simple app to add, edit, and delete daily tasks. Saves tasks in local storage so they remain after refresh.</p>
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span>Portfolio / 2026</p>
+
+          <h1 class="hero-name">
+            Gautham<br>P&nbsp;Sajith
+          </h1>
+
+          <div class="hero-rule" aria-hidden="true"></div>
+
+          <p class="hero-role">
+            <span id="typedRole" class="typed-text"></span><span class="typed-cursor">|</span>
+          </p>
+
+          <p class="hero-summary">
+            I design and build clean, reliable software — from full‑stack web
+            applications to backend systems — with an eye for detail and a
+            steady focus on craftsmanship.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#" class="btn btn-gold" id="resumeBtn" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+              Download Resume
+            </a>
+            <a href="https://github.com/iam-gautham" target="_blank" rel="noopener" class="btn btn-ghost">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.9.58.1.79-.25.79-.56 0-.27-.01-1.18-.02-2.14-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.7.42.36.78 1.07.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+              GitHub
+            </a>
+            <a href="https://linkedin.com/in/gauthampsajith" target="_blank" rel="noopener" class="btn btn-ghost">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-portrait">
+          <div class="portrait-frame">
+            <div class="portrait-placeholder">
+              <svg viewBox="0 0 200 200" fill="none">
+                <circle cx="100" cy="78" r="38" stroke="currentColor" stroke-width="1.4"/>
+                <path d="M36 176c6-38 34-58 64-58s58 20 64 58" stroke="currentColor" stroke-width="1.4"/>
+              </svg>
+            </div>
+            <span class="portrait-corner tl"></span>
+            <span class="portrait-corner br"></span>
+          </div>
+          <p class="portrait-caption">Software Developer<br>Based in Kerala, India</p>
+        </div>
+
       </div>
-      <div class="project-card">
-        <h3>🧮 Calculator</h3>
-        <p>A basic calculator built with HTML, CSS, and JavaScript. Supports +, −, ×, ÷ operations.</p>
+
+      <a href="#about" class="scroll-cue" aria-label="Scroll to About section">
+        <span>Scroll</span>
+        <span class="scroll-cue-line"></span>
+      </a>
+    </section>
+
+    <!-- ============ ABOUT SECTION ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="section-eyebrow">01 — About</p>
+        <h2 class="section-title">A craftsman's approach<br>to software.</h2>
+
+        <div class="about-grid">
+          <div class="about-summary reveal">
+            <p>
+              I'm Gautham P Sajith, a software developer who enjoys turning
+              ideas into dependable, well‑structured applications. My work
+              spans the full stack — from responsive interfaces to Java and
+              Spring Boot services backed by relational databases.
+            </p>
+            <p>
+              I care about clean architecture, readable code, and the small
+              details that make software feel considered rather than
+              assembled. Outside of building, I'm continually sharpening my
+              skills in DevOps tooling and cloud infrastructure.
+            </p>
+
+            <div class="about-stats">
+              <div class="stat">
+                <span class="stat-num">4+</span>
+                <span class="stat-label">Major Projects</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num">12+</span>
+                <span class="stat-label">Technologies</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num">3</span>
+                <span class="stat-label">Certifications</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education Timeline -->
+          <div class="timeline reveal">
+            <h3 class="timeline-heading">Education</h3>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-content">
+                <p class="timeline-year">2022 — 2026</p>
+                <h4>B.Tech, Computer Science Engineering</h4>
+                <p class="timeline-desc">Focused on software engineering, data structures, and web development fundamentals.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-content">
+                <p class="timeline-year">2020 — 2022</p>
+                <h4>Higher Secondary, Science</h4>
+                <p class="timeline-desc">Built a strong foundation in mathematics and computer fundamentals.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-content">
+                <p class="timeline-year">Ongoing</p>
+                <h4>Self‑Driven Learning</h4>
+                <p class="timeline-desc">Continuously studying cloud platforms, DevOps practices, and modern backend frameworks.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="project-card">
-        <h3>🎯 Quiz App</h3>
-        <p>A fun multiple-choice quiz app that tracks your score and lets you restart.</p>
+    </section>
+
+    <!-- ============ SKILLS SECTION ============ -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <p class="section-eyebrow">02 — Skills</p>
+        <h2 class="section-title">Tools of the trade.</h2>
+
+        <div class="skills-grid">
+
+          <!-- Frontend -->
+          <div class="skill-group reveal">
+            <h3 class="skill-group-title">Frontend</h3>
+
+            <div class="skill-bar" data-level="90">
+              <div class="skill-bar-top"><span>HTML</span><span class="skill-percent">90%</span></div>
+              <div class="skill-track"><div class="skill-fill"></div></div>
+            </div>
+            <div class="skill-bar" data-level="85">
+              <div class="skill-bar-top"><span>CSS</span><span class="skill-percent">85%</span></div>
+              <div class="skill-track"><div class="skill-fill"></div></div>
+            </div>
+            <div class="skill-bar" data-level="80">
+              <div class="skill-bar-top"><span>JavaScript</span><span class="skill-percent">80%</span></div>
+              <div class="skill-track"><div class="skill-fill"></div></div>
+            </div>
+            <div class="skill-bar" data-level="70">
+              <div class="skill-bar-top"><span>React</span><span class="skill-percent">70%</span></div>
+              <div class="skill-track"><div class="skill-fill"></div></div>
+            </div>
+          </div>
+
+          <!-- Backend -->
+          <div class="skill-group reveal">
+            <h3 class="skill-group-title">Backend</h3>
+
+            <div class="skill-bar" data-level="85">
+              <div class="skill-bar-top"><span>Java</span><span class="skill-percent">85%</span></div>
+              <div class="skill-track"><div class="skill-fill"></div></div>
+            </div>
+            <div class="skill-bar" data-level="75">
+              <div class="skill-bar-top"><span>Spring Boot</span><span class="skill-percent">75%</span></div>
+              <div class="skill-track"><div class="skill-fill"></div></div>
+            </div>
+            <div class="skill-bar" data-level="78">
+              <div class="skill-bar-top"><span>MySQL</span><span class="skill-percent">78%</span></div>
+              <div class="skill-track"><div class="skill-fill"></div></div>
+            </div>
+          </div>
+
+          <!-- DevOps -->
+          <div class="skill-group reveal">
+            <h3 class="skill-group-title">DevOps</h3>
+
+            <div class="skill-bar" data-level="80">
+              <div class="skill-bar-top"><span>Git</span><span class="skill-percent">80%</span></div>
+              <div class="skill-track"><div class="skill-fill"></div></div>
+            </div>
+            <div class="skill-bar" data-level="82">
+              <div class="skill-bar-top"><span>GitHub</span><span class="skill-percent">82%</span></div>
+              <div class="skill-track"><div class="skill-fill"></div></div>
+            </div>
+            <div class="skill-bar" data-level="65">
+              <div class="skill-bar-top"><span>Docker</span><span class="skill-percent">65%</span></div>
+              <div class="skill-track"><div class="skill-fill"></div></div>
+            </div>
+            <div class="skill-bar" data-level="60">
+              <div class="skill-bar-top"><span>Jenkins</span><span class="skill-percent">60%</span></div>
+              <div class="skill-track"><div class="skill-fill"></div></div>
+            </div>
+            <div class="skill-bar" data-level="62">
+              <div class="skill-bar-top"><span>AWS</span><span class="skill-percent">62%</span></div>
+              <div class="skill-track"><div class="skill-fill"></div></div>
+            </div>
+          </div>
+
+        </div>
       </div>
-      <div class="project-card">
-        <h3>🌤️ Weather App</h3>
-        <p>A weather app that fetches real-time data using the OpenWeather API. Displays temperature and conditions.</p>
+    </section>
+
+    <!-- ============ PROJECTS SECTION ============ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="section-eyebrow">03 — Projects</p>
+        <h2 class="section-title">Selected work.</h2>
+
+        <div class="projects-grid">
+
+          <article class="project-card reveal">
+            <div class="project-image">
+              <svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice">
+                <rect width="400" height="240" fill="none"/>
+                <g stroke="currentColor" stroke-width="1" opacity="0.5">
+                  <rect x="40" y="50" width="320" height="34" rx="4"/>
+                  <rect x="40" y="98" width="150" height="92" rx="4"/>
+                  <rect x="206" y="98" width="154" height="42" rx="4"/>
+                  <rect x="206" y="150" width="154" height="40" rx="4"/>
+                </g>
+              </svg>
+            </div>
+            <div class="project-body">
+              <h3>StudyFlow Productivity Tracker</h3>
+              <p>A focus and task‑tracking app for students, with study session timers, task boards, and progress insights to build consistent habits.</p>
+              <ul class="project-tags">
+                <li>Java</li><li>Spring Boot</li><li>MySQL</li><li>JavaScript</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/iam-gautham" target="_blank" rel="noopener" class="link-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.9.58.1.79-.25.79-.56 0-.27-.01-1.18-.02-2.14-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.7.42.36.78 1.07.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+                  Code
+                </a>
+                <a href="#" class="link-btn link-btn-gold">
+                  Live Demo
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-image">
+              <svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice">
+                <g stroke="currentColor" stroke-width="1" opacity="0.5">
+                  <circle cx="120" cy="120" r="46"/>
+                  <rect x="200" y="74" width="160" height="22" rx="3"/>
+                  <rect x="200" y="106" width="120" height="14" rx="3"/>
+                  <rect x="200" y="130" width="140" height="14" rx="3"/>
+                  <rect x="60" y="178" width="280" height="3"/>
+                </g>
+              </svg>
+            </div>
+            <div class="project-body">
+              <h3>Event Management Portal</h3>
+              <p>A web platform for creating, scheduling, and managing events — with registration handling, attendee tracking, and an admin dashboard.</p>
+              <ul class="project-tags">
+                <li>Java</li><li>Spring Boot</li><li>MySQL</li><li>HTML/CSS</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/iam-gautham" target="_blank" rel="noopener" class="link-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.9.58.1.79-.25.79-.56 0-.27-.01-1.18-.02-2.14-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.7.42.36.78 1.07.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+                  Code
+                </a>
+                <a href="#" class="link-btn link-btn-gold">
+                  Live Demo
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-image">
+              <svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice">
+                <g stroke="currentColor" stroke-width="1" opacity="0.5" fill="none">
+                  <polyline points="40,180 90,140 140,160 190,90 240,120 290,60 340,100"/>
+                  <rect x="40" y="50" width="320" height="150" rx="4"/>
+                </g>
+              </svg>
+            </div>
+            <div class="project-body">
+              <h3>Linux Resource Monitoring System</h3>
+              <p>A lightweight system‑monitoring tool that tracks CPU, memory, and disk usage on Linux, with live graphs and threshold alerts.</p>
+              <ul class="project-tags">
+                <li>Java</li><li>Linux</li><li>Shell</li><li>MySQL</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/iam-gautham" target="_blank" rel="noopener" class="link-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.9.58.1.79-.25.79-.56 0-.27-.01-1.18-.02-2.14-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.7.42.36.78 1.07.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+                  Code
+                </a>
+                <a href="#" class="link-btn link-btn-gold">
+                  Live Demo
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-image">
+              <svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice">
+                <g stroke="currentColor" stroke-width="1" opacity="0.5">
+                  <rect x="40" y="60" width="100" height="120" rx="4"/>
+                  <rect x="160" y="60" width="100" height="60" rx="4"/>
+                  <rect x="160" y="130" width="100" height="50" rx="4"/>
+                  <rect x="280" y="60" width="80" height="120" rx="4"/>
+                </g>
+              </svg>
+            </div>
+            <div class="project-body">
+              <h3>Freelancing Platform</h3>
+              <p>A marketplace connecting freelancers with clients — featuring profiles, project listings, proposals, and secure messaging.</p>
+              <ul class="project-tags">
+                <li>Java</li><li>Spring Boot</li><li>React</li><li>MySQL</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/iam-gautham" target="_blank" rel="noopener" class="link-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.9.58.1.79-.25.79-.56 0-.27-.01-1.18-.02-2.14-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.7.42.36.78 1.07.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+                  Code
+                </a>
+                <a href="#" class="link-btn link-btn-gold">
+                  Live Demo
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE & CERTIFICATIONS ============ -->
+    <section class="section section-alt" id="experience">
+      <div class="container">
+        <p class="section-eyebrow">04 — Experience &amp; Certifications</p>
+        <h2 class="section-title">Proof of practice.</h2>
+
+        <div class="cert-grid">
+
+          <div class="cert-card reveal">
+            <div class="cert-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2 3 6v6c0 5 4 8.5 9 10 5-1.5 9-5 9-10V6l-9-4Z"/><path d="M9 12l2.2 2.2L15.5 9.5"/></svg>
+            </div>
+            <h3>Microsoft AI Skills Fest 2026</h3>
+            <p>Badge — Completed hands‑on modules covering applied AI fundamentals and practical model usage.</p>
+          </div>
+
+          <div class="cert-card reveal">
+            <div class="cert-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 18a5 5 0 0 1 1-9.9A6 6 0 0 1 17.6 8 4.5 4.5 0 0 1 18 17H6Z"/></svg>
+            </div>
+            <h3>AWS Cloud Foundations</h3>
+            <p>Certification — Core concepts of cloud computing, AWS infrastructure, and foundational services.</p>
+          </div>
+
+          <div class="cert-card reveal">
+            <div class="cert-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 17V9l8-5 8 5v8l-8 5-8-5Z"/><path d="M12 12v9M4 9l8 3 8-3"/></svg>
+            </div>
+            <h3>DevOps Projects</h3>
+            <p>Practical work — Applied CI/CD pipelines, containerization, and version control across real builds.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT SECTION ============ -->
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+
+        <div class="contact-info reveal">
+          <p class="section-eyebrow">05 — Contact</p>
+          <h2 class="section-title">Let's build<br>something.</h2>
+          <p class="contact-lead">
+            Open to opportunities, collaborations, and a good conversation
+            about software. Reach out through any of the channels below.
+          </p>
+
+          <ul class="contact-list">
+            <li>
+              <span class="contact-label">Email</span>
+              <a href="mailto:gauthampsajith@gmail.com">gauthampsajith@gmail.com</a>
+            </li>
+            <li>
+              <span class="contact-label">Phone</span>
+              <a href="tel:+910000000000">+91 00000 00000</a>
+            </li>
+            <li>
+              <span class="contact-label">GitHub</span>
+              <a href="https://github.com/iam-gautham" target="_blank" rel="noopener">github.com/iam-gautham</a>
+            </li>
+            <li>
+              <span class="contact-label">LinkedIn</span>
+              <a href="https://linkedin.com/in/gauthampsajith" target="_blank" rel="noopener">linkedin.com/in/gauthampsajith</a>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required>
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold full-width">
+            Send Message
+          </button>
+          <p class="form-note" id="formNote" role="status"></p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="logo">G<span class="logo-accent">·</span>PS</span>
+      <p>&copy; 2026 Gautham P Sajith. Crafted with HTML, CSS &amp; JavaScript.</p>
+      <div class="footer-socials">
+        <a href="https://github.com/iam-gautham" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.9.58.1.79-.25.79-.56 0-.27-.01-1.18-.02-2.14-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.7.42.36.78 1.07.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/gauthampsajith" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+        </a>
+        <a href="mailto:gauthampsajith@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        </a>
       </div>
     </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:gauthampsajith@gmail.com">gauthampsajith@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/iam-gautham" target="_blank">github.com/iam-gautham</a></p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Gautham P Sajith. Built with ❤️ using HTML, CSS, and JS.</p>
   </footer>
+
+  <!-- ============ BACK TO TOP ============ -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19V6M5 12l7-7 7 7"/></svg>
+  </button>
 
   <script src="script.js"></script>
 </body>
