@@ -465,8 +465,8 @@ body.light-mode .icon-moon { display: block; }
 
 .portrait-frame {
   position: relative;
-  width: 280px;
-  height: 340px;
+  width: 240px;
+  height: 300px;
   background: var(--panel-glass);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -479,8 +479,8 @@ body.light-mode .icon-moon { display: block; }
 }
 
 .portrait-placeholder {
-  width: 110px;
-  height: 110px;
+  width: 220px;
+  height: 280px;
   color: var(--text-mute);
 }
 

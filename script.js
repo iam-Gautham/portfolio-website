@@ -269,12 +269,12 @@ document.addEventListener('DOMContentLoaded', () => {
      (e.g. "assets/Gautham_P_Sajith_Resume.pdf") once available.
   ----------------------------------------------------------- */
   const resumeBtn = document.getElementById('resumeBtn');
-
+/*
   resumeBtn.addEventListener('click', (e) => {
     e.preventDefault();
     alert('Add your resume file path to the "resumeBtn" link in index.html to enable this download.');
   });
-
+*/
 
   /* -----------------------------------------------------------
      10. CONTACT FORM HANDLING
